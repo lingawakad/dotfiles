@@ -1,0 +1,92 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "height": 20,
+    "spacing": 0,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock",
+        "privacy",
+        "custom/wireguard-manager"
+    ],
+    "modules-right": [
+    	"mpris",
+        "mpd",
+        "network",
+        "battery",
+        "custom/powermenu"
+    ],
+    "sway/workspaces": {
+        "window-rewrite": {}
+    },
+    "clock": {
+        "tooltip-format": " {:%a, %d %b %Y} ",
+        "format": " {:%R}"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-disconnected": "",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "format-ethernet": "",
+        "tooltip-format-ethernet": "{ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "nospacing": 1,
+        "interval": 30
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "default": [
+                " ",
+                " ",
+                " ",
+                " ",
+                " "
+            ]
+        },
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "format-charging": "",
+        "tooltip": "{capacity} // {time}"
+    },
+    "custom/powermenu": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu/type-6/powermenu.sh &"
+    },
+    "mpd": {
+        "format": "{artist} - {album} - {title}",
+        "format-disconnected": "",
+        "format-stopped": "",
+        "format-paused": "",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "on-click": "mpc toggle",
+    	"tooltip-format": "({elapsedTime:%M:%S} - {totalTime:%M:%S})",
+    },
+    "privacy": {
+        "transition-duration": 250,
+        "modules": [
+            {"type": "screenshare"},
+            {"type": "audio-in"}
+        ]
+    },
+    "custom/wireguard-manager": {
+        "interval": 15,
+        "return-type": "json",
+        "format-icons": {
+            "connected": "",
+            "disconnected": ""
+        },
+        "exec": "bash $HOME/.config/waybar/scripts/wireguard-manager.sh -s",
+        "format": "{icon}"
+    }
+}

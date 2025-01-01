@@ -1,0 +1,116 @@
+@import "macchiato.css";
+
+* {
+  font-family: Monolisa;
+  font-size: 15px;
+  font-weight: bolder;
+  border: none;
+  background-color: @base;
+  padding: 0px 6px 0px 6px;
+  border-radius: 9px;
+}
+
+#window {
+  color: @base;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.1;
+}
+
+@keyframes button_activate {
+  from {
+    opacity: .3
+  }
+  to {
+    opacity: 1.;
+  }
+}
+
+#workspaces button {
+  color: @text;
+}
+
+#workspaces button.active {
+  color: @flamingo;
+  background-color: @crust;
+  animation: button_activate .2s ease-in-out;
+}
+
+#workspaces button.urgent {
+  color: @red;
+  background: @crust;
+}
+
+#workspaces button.persistent {
+  color: @flamingo;
+}
+
+#workspaces button.active:hover,
+#workspaces button.urgent:hover {
+  background: inherit;
+}
+
+#custom-launcher {
+  color: @text;
+}
+
+#clock {
+  color: @text;
+}
+
+#privacy {
+  color: @text;
+}
+
+#mpris {
+  color: @yellow;
+}
+
+#mpd {
+  color: @peach;
+}
+
+#network {
+  color: @blue;
+}
+
+#battery {
+  color: @teal;
+}
+
+#battery.critical,
+#battery.warning {
+  color: @red;
+}
+
+@keyframes blink {
+  to {
+    background-color: @crust;
+    color: @overlay0;
+  }
+}
+
+#battery.warning {
+  color: @red;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#custom-powermenu {
+  color: @red;
+}
+
+#custom-wireguard-manager {
+  color: @mauve;
+}
+
+label:focus {
+  background-color: @overlay0;
+}

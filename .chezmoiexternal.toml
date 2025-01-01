@@ -1,0 +1,34 @@
+[".config/bat/themes/Catppuccin-macchiato.tmTheme"]
+  type = "file"
+  url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme"
+  refreshPeriod = "168h"
+
+[".config/delta/themes.gitconfig"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/dandavison/delta/master/themes.gitconfig"
+  refreshPeriod = "168h"
+
+[".config/bottom/bottom.toml"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/bottom/main/themes/macchiato.toml"
+  refreshPeriod = "168h"
+
+[".config/foot/theme.ini"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/foot/main/themes/catppuccin-macchiato.ini"
+  refreshPeriod = "168h"
+
+[".config/helix/themes/catppuccin_macchiato.toml"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/helix/main/themes/default/catppuccin_macchiato.toml"
+  refreshPeriod = "168h"
+
+[".config/waybar/macchiato.css"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/macchiato.css"
+  refreshPeriod = "168h"
+
+[".config/sway/catppuccin-macchiato"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/i3/refs/heads/main/themes/catppuccin-macchiato"
+  refreshPeriod = "168h"
