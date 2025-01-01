@@ -32,3 +32,7 @@
   type = "file"
   url = "https://raw.githubusercontent.com/catppuccin/i3/refs/heads/main/themes/catppuccin-macchiato"
   refreshPeriod = "168h"
+
+["/usr/share/backgrounds/default.png"]
+  type = "file"
+  url = "https://github.com/UncleSpellbinder/EndeavourOS-HD-Wallpaper/blob/main/EOS_Astronaut_zDyan%5BT%5D%20_Logo1__2560x1440.png"
