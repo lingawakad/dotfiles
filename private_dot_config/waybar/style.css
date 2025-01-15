@@ -53,6 +53,7 @@ window#waybar.hidden {
 #workspaces button.active:hover,
 #workspaces button.urgent:hover {
   background: inherit;
+  background-color: @mauve;
 }
 
 #custom-launcher {
@@ -64,7 +65,15 @@ window#waybar.hidden {
 }
 
 #privacy {
-  color: @text;
+  color: @red;
+}
+
+#temperature {
+  color: @blue;
+}
+
+#temperature.critical {
+  color: @red;
 }
 
 #mpris {

@@ -1,0 +1,7 @@
+Include ~/.ssh/config.d/*
+
+Host *
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+  ForwardAgent yes
+  SetEnv TERM=xterm-color
