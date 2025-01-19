@@ -40,7 +40,7 @@
         "interval": 30
     },
     "battery": {
-        "format": "{icon} {capacity}%",
+        "format": "{icon}{capacity}%",
         "format-icons": {
             "default": [
                 " ",
@@ -48,6 +48,9 @@
                 " ",
                 " ",
                 " "
+            ],
+            "charging": [
+                ""
             ]
         },
         "interval": 30,
@@ -55,7 +58,7 @@
             "warning": 25,
             "critical": 10
         },
-        "format-charging": "",
+        // "format-charging": "",
         "tooltip": "{capacity} // {time}"
     },
     "custom/powermenu": {
