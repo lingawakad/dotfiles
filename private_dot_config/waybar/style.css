@@ -68,7 +68,9 @@ window#waybar.hidden {
   color: @red;
 }
 
-#temperature {
+#temperature,
+#cpu,
+#memory {
   color: @blue;
 }
 
