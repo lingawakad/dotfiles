@@ -26,7 +26,9 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         return 1 # Album not found, safe to play
     end
 
-    for albumname in (beet random -aef '$album' -n$count)
+    set counter 0
+    while test $counter -lt $count
+        set albumname (beet random -aef '$album')
         if is_album_played (string replace -ra ' ' '' "$albumname")
             continue
         else
@@ -35,6 +37,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
             if test (count $last_played_albums) -gt 100
                 set -e last_played_albums[1]
             end
+            set counter (math $counter + 1)
         end
     end
 
