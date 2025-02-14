@@ -18,4 +18,6 @@ set fzf_preview_dir_cmd eza --grid --long --icons=always --all --group-directori
 
 set fzf_diff_highlighter delta --paging=never --width=20
 
-set PATH $PATH ~/.local/bin ~/.cargo/bin
+set -x GEM_HOME ~/gems
+
+set PATH $PATH ~/.local/bin ~/.cargo/bin ~/gems/bin
