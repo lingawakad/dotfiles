@@ -8,7 +8,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         set count $argv
     end
 
-    printf '%s %d %s\n\n\n%s\n\n' "...picking out" "$count" "new albums to play..." "...now playing..."
+    printf '\n%s %d %s\n\n\n%s\n\n' "...picking out" "$count" "new albums to play..." "...now playing:::"
 
     # clear the previous mpd playlist
     mpc --quiet clear
@@ -45,7 +45,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         end
     end
 
-    printf '%s\n' "...enjoy..."
+    printf '%s\n\n' "...enjoy..."
     mpc --quiet consume off
     mpc --quiet random off
     mpc --quiet repeat off
