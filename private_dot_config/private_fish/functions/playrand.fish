@@ -45,6 +45,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         end
     end
 
+    printf '%s\n' "...enjoy..."
     mpc --quiet consume off
     mpc --quiet random off
     mpc --quiet repeat off
