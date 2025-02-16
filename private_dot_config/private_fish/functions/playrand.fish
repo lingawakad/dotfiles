@@ -8,6 +8,8 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         set count $argv
     end
 
+    printf '%s %d %s\n\n\n%s\n\n' "...picking out" "$count" "new albums to play..." "...now playing..."
+
     # clear the previous mpd playlist
     mpc --quiet clear
 
@@ -28,7 +30,8 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
 
     set counter 0
     while test $counter -lt $count
-        set albumname (beet random -aef '$album')
+        set albumfull (beet random -ae)
+        echo $albumfull | cut -d- -f2 | string trim | read albumname
         if is_album_played (string replace -ra ' ' '' "$albumname")
             continue
         else
@@ -38,6 +41,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
                 set -e last_played_albums[1]
             end
             set counter (math $counter + 1)
+            printf '%s\n\n' $albumfull
         end
     end
 
