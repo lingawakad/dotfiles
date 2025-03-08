@@ -1,4 +1,4 @@
-function ll --wraps='eza --grid --long --icons=always --all --group-directories-first --git --git-repos' --description 'alias ll eza --grid --long --icons=always --all --group-directories-first --git --git-repos'
-    eza --grid --long --icons=always --all --group-directories-first --git --git-repos --classify=always $argv
+function ll --wraps='eza' --description eza
+    eza --grid --long --icons=never --all --group-directories-first --git --git-repos --classify=always $argv
 
 end
