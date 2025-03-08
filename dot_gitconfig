@@ -1,0 +1,50 @@
+# This is Git's per-user configuration file.
+
+[update.interactive]
+	useBuiltin = false
+
+[include]
+	path = ~/.gitconfig.local
+	path = ~/.config/delta/themes.gitconfig
+
+[core]
+	excludesfile = ~/.gitignore
+
+[fetch]
+	prune = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+  tool = difftastic
+  external = difft
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+[alias]
+	ch = checkout
+	co = commit -m
+	st = status
+	sh = status --short
+	br = branch
+	dft = difftool
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	dlog = "!f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+	sw = switch
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
+[color]
+	ui = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
