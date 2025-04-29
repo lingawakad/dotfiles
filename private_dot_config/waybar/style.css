@@ -1,8 +1,8 @@
 @import "macchiato.css";
 
 * {
-  font-family: Monolisa;
-  font-size: 15px;
+  font-family: MonolisaNerdFont;
+  font-size: 18px;
   font-weight: bolder;
   border: none;
   background-color: @base;

@@ -1,26 +1,24 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 5,
-    "margin-left": 10,
-    "margin-right": 10,
-    "height": 20,
+    "margin-top": 3,
+    "margin-left": 3,
+    "margin-right": 3,
     "spacing": 0,
     "modules-left": [
+        "custom/powermenu",
         "sway/workspaces",
         "privacy",
         "temperature",
         "cpu",
-        "memory",
-        "clock"
+        "memory"
     ],
     "modules-right": [
-    	"mpris",
         "mpd",
         "custom/wireguard-manager",
         "network",
         "battery",
-        "custom/powermenu"
+        "clock"
     ],
     "sway/workspaces": {
         "window-rewrite": {}
