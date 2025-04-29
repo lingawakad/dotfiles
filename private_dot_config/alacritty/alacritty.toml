@@ -2,13 +2,26 @@
 size = 15.0
 
 [font.normal]
-family = "Monolisa"
+family = "MonolisaNerdFont"
+style = "Regular"
+[font.bold]
+family = "MonolisaNerdFont"
+style = "Bold"
+[font.italic]
+family = "MonolisaNerdFont"
+style = "Italic"
+[font.bold_italic]
+family = "MonolisaNerdFont"
+style = "Bold Italic"
 
 [terminal]
 shell = { program = "/usr/bin/fish" }
 
 [window]
 dynamic_padding = true
+
+[env]
+TERM = "xterm-256color"
 
 [colors.primary]
 background = "#24273a"

@@ -1,4 +1,4 @@
-function playrand --description "Plays random albums, ensuring no repeat for at least 400 plays"
+function playrand --description "Plays random albums, ensuring no repeat for at least 500 plays"
     # obviously, you'll need mpd, mpc and beets (with the random plugin) at a minimum
 
     # set the desired album count
@@ -13,7 +13,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
     # clear the previous mpd playlist
     mpc --quiet clear
 
-    # Initialize an array to store the last 400 played albums if it doesn't exist
+    # Initialize an array to store the last 500 played albums if it doesn't exist
     if not set -q last_played_albums
         set -U last_played_albums
     end
@@ -37,7 +37,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
         else
             mpc findadd album $albumname
             set -a last_played_albums (string replace -ra ' ' '' "$albumname")
-            if test (count $last_played_albums) -gt 400
+            if test (count $last_played_albums) -gt 500
                 set -e last_played_albums[1]
             end
             set counter (math $counter + 1)
