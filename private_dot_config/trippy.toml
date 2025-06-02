@@ -267,7 +267,7 @@ tui-as-mode = "asn"
 #   f - Probes failed
 #
 # The columns will be shown in the order specified.
-tui-custom-columns = "holsravbwdtgN"
+tui-custom-columns = "hosravbwdtgN"
 
 # How to render ICMP extensions.
 #
