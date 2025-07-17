@@ -21,3 +21,5 @@ set fzf_diff_highlighter delta --paging=never --width=20
 set -x GEM_HOME ~/gems
 
 set PATH $PATH ~/.local/bin ~/.cargo/bin ~/gems/bin
+
+eval (ssh-agent -c)
