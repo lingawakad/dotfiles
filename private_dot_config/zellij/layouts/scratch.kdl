@@ -1,0 +1,11 @@
+layout {
+	pane split_direction="vertical" {
+		pane 
+		pane command="ncmpcpp"
+	}
+	pane split_direction="vertical" {
+		pane command="btm"
+		pane command="tracker"
+		}
+}
+
