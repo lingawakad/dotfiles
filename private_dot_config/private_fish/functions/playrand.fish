@@ -21,7 +21,8 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
     # Function to check if an album is already played
     function is_album_played
         for albumname in $last_played_albums
-            if test $argv = $albumname
+            set playhistory (echo $last_played_albums | grep $argv | count)
+            if test (count $playhistory) -gt 3
                 return 0 # Album found, do not play it
             end
         end
