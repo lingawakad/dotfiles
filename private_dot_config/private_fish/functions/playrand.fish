@@ -1,4 +1,4 @@
-function playrand --description "Plays random albums, ensuring no repeat for at least 450 plays"
+function playrand --description "Plays random albums, ensuring no repeat for at least 350 plays"
     # obviously, you'll need mpd, mpc and beets (with the random plugin) at a minimum
 
     # set the desired album count
@@ -13,15 +13,15 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
     # clear the previous mpd playlist
     mpc --quiet clear
 
-    # Initialize an array to store the last 450 played albums if it doesn't exist
+    # Initialize an array to store the last 350 played albums if it doesn't exist
     if not set -q last_played_albums
         set -U last_played_albums
     end
 
     # Function to check if an album is already played
     function is_album_played
-        for albumname in $last_played_albums
-            set playhistory (echo $last_played_albums | grep $argv | count)
+        for mbid in $last_played_albums
+            set playhistory (echo $last_played_albums | grep $mbid | count)
             if test (count $playhistory) -gt 3
                 return 0 # Album found, do not play it
             end
@@ -31,18 +31,19 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
 
     set counter 0
     while test $counter -lt $count
-        set albumfull (beet random -ae)
-        echo $albumfull | cut -d- -f2 | string trim | read albumname
-        if is_album_played (string replace -ra ' ' '' "$albumname")
+        # set albumfull (beet random -ae)
+        # echo $albumfull | cut -d- -f2 | string trim | read albumname
+        set mbid (mpc list musicbrainz_albumid | shuf -n 1)
+        if is_album_played $mbid
             continue
         else
-            mpc findadd album $albumname
-            set -a last_played_albums (string replace -ra ' ' '' "$albumname")
-            if test (count $last_played_albums) -gt 450
+            mpc findadd musicbrainz_albumid $mbid
+            set -a last_played_albums $mbid
+            if test (count $last_played_albums) -gt 350
                 set -e last_played_albums[1]
             end
             set counter (math $counter + 1)
-            printf '%s\n\n' $albumfull
+            # printf '%s\n\n' $albumfull
         end
     end
 

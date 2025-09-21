@@ -36,9 +36,3 @@
 [".config/swaylock/default.png"]
   type = "file"
   url = "https://github.com/UncleSpellbinder/EndeavourOS-HD-Wallpaper/blob/main/EOS_Astronaut_zDyan%5BT%5D%20_Logo1__2560x1440.png"
-
-[".local/bin/ashuffle"]
-  type = "file"
-  executable = "true"
-  url = {{ gitHubLatestReleaseAssetURL "joshkunz/ashuffle" "ashuffle.x86_64-linux-gnu" | quote }}
-  path = "ashuffle"
