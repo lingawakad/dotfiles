@@ -1,5 +1,5 @@
 function playrand --description "Plays random albums, ensuring no repeat for at least 350 plays"
-    # obviously, you'll need mpd, mpc and beets (with the random plugin) at a minimum
+    # obviously, you'll need mpd, mpc and possibly libmpdclient. i would recommend beets for library management which provides the musicbrainz id, or picard autotagger
 
     # set the desired album count
     if test (count $argv) -eq 0
@@ -21,7 +21,7 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
     # Function to check if an album is already played
     function is_album_played
         for mbid in $last_played_albums
-            set playhistory (echo $last_played_albums | grep $mbid | count)
+            set playhistory (echo $last_played_albums | grep -o $mbid | count)
             if test (count $playhistory) -gt 3
                 return 0 # Album found, do not play it
             end
@@ -31,8 +31,6 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
 
     set counter 0
     while test $counter -lt $count
-        # set albumfull (beet random -ae)
-        # echo $albumfull | cut -d- -f2 | string trim | read albumname
         set mbid (mpc list musicbrainz_albumid | shuf -n 1)
         if is_album_played $mbid
             continue
@@ -43,11 +41,10 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
                 set -e last_played_albums[1]
             end
             set counter (math $counter + 1)
-            # printf '%s\n\n' $albumfull
         end
     end
 
-    printf %s\n\n "...now playing:::" ":::enjoy..."
+    printf %s\n\n ":::enjoy..."
     mpc --quiet consume off
     mpc --quiet random off
     mpc --quiet repeat off
