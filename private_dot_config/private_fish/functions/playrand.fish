@@ -14,15 +14,13 @@ function playrand --description "Plays random albums, ensuring no repeat for at 
     mpc --quiet clear
 
     # Initialize an array to store the last 350 played albums if it doesn't exist
-    if not set -q last_played_albums
-        set -U last_played_albums
-    end
+    set -aU last_played_albums
 
     # Function to check if an album is already played
     function is_album_played
         for mbid in $last_played_albums
-            set playhistory (echo $last_played_albums | grep -o $mbid | count)
-            if test (count $playhistory) -gt 3
+            set -l playhistory (echo $last_played_albums | grep -o $mbid | count)
+            if test $playhistory -gt 3
                 return 0 # Album found, do not play it
             end
         end
