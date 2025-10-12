@@ -22,12 +22,13 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # Recommends: rofi-wayland
-set $rofi_cmd rofi \
-        -terminal '$term'
+# set $rofi_cmd rofi \
+        # -terminal '$term'
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+# set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+set $menu '~/.config/rofi/launchers/type-6/launcher.sh'
 
 ### Output configuration
 #
@@ -45,12 +46,12 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 #
 # Example configuration:
 #
-exec swayidle -w \
-         # timeout 900 'swaylock -f --grace 12 --fade-in 9' \
-         # timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000; swaymsg "output * power off"' \
-    unlock 'swaymsg "output * power on"' \
-    after-resume 'swaymsg "output * power on"'
+# exec swayidle -w \
+#     timeout 900 'swaylock -f --grace 12 --fade-in 9' \
+#     timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#     before-sleep 'swaylock -f -c 000000; swaymsg "output * power off"' \
+#     unlock 'swaymsg "output * power on"' \
+#     resume 'swaymsg "output * power on"'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -82,6 +83,8 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $mod+Shift+w exec 'swaylock -f'
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
