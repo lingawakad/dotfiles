@@ -10,6 +10,7 @@ function bup
     echo -e "\n\nrustbuckets incoming...\n\n"
     cargo install eza
     cargo install trippy --locked
+    cargo install rmpc --locked
     cargo install listenbrainz-mpd -F systemd
     echo -e "\n\ngoing the distance...\n\n"
     go install github.com/ycd/dstp/cmd/dstp@latest
